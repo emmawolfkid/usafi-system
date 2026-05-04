@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Receipt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .receipt {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 5px 0;
+    }
+
+    .info {
+      margin-top: 15px;
+      font-size: 15px;
+    }
+
+    .info p {
+      margin: 6px 0;
+    }
+
+    .total {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      background: #1e88e5;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn.whatsapp {
+      background: #25D366;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="receipt">
+
+  <div class="header">
+    <img src="logo.png" class="logo">
+    <h2>Mwanza Cargo</h2>
+    <p>Fast • Reliable • Secure Transport</p>
+  </div>
+
+  <h3>Booking Receipt</h3>
+
+  <div class="info">
+    <p><strong>Name:</strong> <span id="name"></span></p>
+    <p><strong>Phone:</strong> <span id="phone"></span></p>
+    <p><strong>Pickup:</strong> <span id="pickup"></span></p>
+    <p><strong>Destination:</strong> <span id="destination"></span></p>
+    <p><strong>Items:</strong> <span id="items"></span></p>
+    <p><strong>Total:</strong> <span id="total"></span> TZS</p>
+    <p><strong>Date:</strong> <span id="date"></span></p>
+  </div>
+
+  <div class="total">
+    Amount to Pay: <span id="total2"></span> TZS
+  </div>
+
+  <p>Please pay via M-Pesa: XXXXX</p>
+
+  <button class="btn" onclick="window.print()">🖨️ Print Receipt</button>
+
+  <a class="btn whatsapp" id="whatsappBtn" target="_blank">
+    Contact via WhatsApp
+  </a>
+
+</div>
+
+<script>
+  // Read data from localStorage
+  const name = localStorage.getItem('bookingName') || 'Customer';
+  const phone = localStorage.getItem('bookingPhone') || '';
+  const pickup = localStorage.getItem('bookingPickup') || '-';
+  const destination = localStorage.getItem('bookingDestination') || '-';
+  const items = localStorage.getItem('bookingItems') || '-';
+  const total = localStorage.getItem('bookingTotal') || '0';
+  
+  document.getElementById("name").textContent = name;
+  document.getElementById("phone").textContent = phone;
+  document.getElementById("pickup").textContent = pickup;
+  document.getElementById("destination").textContent = destination;
+  document.getElementById("items").textContent = items;
+  document.getElementById("total").textContent = total;
+  document.getElementById("total2").textContent = total;
+
+  const now = new Date();
+  document.getElementById("date").textContent = now.toLocaleString();
+
+  const whatsappPhone = "255783036243";
+  const message = `Hello, I have made a cargo booking.%0AName: ${name}%0APhone: ${phone}%0APickup: ${pickup}%0ADestination: ${destination}%0AItems: ${items}%0ATotal: ${total} TZS`;
+
+  document.getElementById("whatsappBtn").href =
+    `https://wa.me/${whatsappPhone}?text=${message}`;
+    
+  // Clear localStorage after using it (optional)
+  // localStorage.clear();
+</script>
+</body>
+</html>

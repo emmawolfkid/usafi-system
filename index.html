@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cleaning Service Booking</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <div class="card">
+
+    <h2>Cleaning Service Booking</h2>
+
+    <form name="cleaning-booking" method="POST" data-netlify="true">
+
+      <input type="hidden" name="form-name" value="cleaning-booking">
+      <input type="hidden" name="services" id="servicesInput">
+      <input type="hidden" name="total" id="totalInput">
+
+      <!-- CUSTOMER -->
+      <h3>Customer Details</h3>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+
+      <!-- LOCATION -->
+      <h3>Service Location</h3>
+      <input type="text" name="location" placeholder="Enter Address" required>
+
+      <!-- SCHEDULE -->
+      <h3>Schedule</h3>
+      <div class="schedule">
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+      </div>
+
+      <!-- SERVICES -->
+      <h3>Select Cleaning Services</h3>
+      <input type="text" id="search" placeholder="Search services...">
+
+      <div class="items"></div>
+
+      <!-- TOTAL -->
+      <div class="total-box">
+        Total: <strong><span id="total">0</span> TZS</strong>
+      </div>
+
+      <!-- NOTES -->
+      <textarea name="notes" placeholder="Additional instructions"></textarea>
+
+      <button type="submit">Confirm Booking</button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script src="scripts.js"></script>
+
+</body>
+</html>

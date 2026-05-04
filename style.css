@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f9;
+}
+
+.wrapper {
+  max-width: 650px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-top: 25px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.schedule {
+  display: flex;
+  gap: 10px;
+}
+
+.schedule input {
+  flex: 1;
+}
+
+#search {
+  margin-bottom: 10px;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.item-card {
+  background: #f8f9fb;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: 0.2s ease;
+}
+
+.item-card:hover {
+  background: #eef3ff;
+  transform: translateY(-2px);
+}
+
+.item-card label {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.item-card span {
+  margin-bottom: 5px;
+}
+
+.item-card strong {
+  color: #1e88e5;
+}
+
+.total-box {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: right;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #1e88e5;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1565c0;
+}
+
+@media (max-width: 600px) {
+  .items {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule {
+    flex-direction: column;
+  }
+}

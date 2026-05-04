@@ -1,0 +1,10 @@
+{
+  "services": [
+    { "name": "Home Cleaning (1 Bedroom)", "price": 20000 },
+    { "name": "Home Cleaning (2 Bedroom)", "price": 35000 },
+    { "name": "Office Cleaning (Small)", "price": 30000 },
+    { "name": "Office Cleaning (Large)", "price": 60000 },
+    { "name": "Carpet Cleaning", "price": 15000 },
+    { "name": "Window Cleaning", "price": 10000 }
+  ]
+}

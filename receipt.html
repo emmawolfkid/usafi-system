@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cleaning Receipt</title>
+</head>
+
+<body>
+
+<h2>Cleaning Service Receipt</h2>
+
+<p>Name: <span id="name"></span></p>
+<p>Phone: <span id="phone"></span></p>
+<p>Location: <span id="location"></span></p>
+<p>Date: <span id="date"></span></p>
+<p>Time: <span id="time"></span></p>
+
+<h3>Services Breakdown</h3>
+<ul id="serviceList"></ul>
+
+<h3>Total: <span id="total"></span> TZS</h3>
+
+<button onclick="window.print()">Print</button>
+
+<script>
+const services = JSON.parse(localStorage.getItem('bookingServices') || '[]');
+const total = localStorage.getItem('bookingTotal');
+
+document.getElementById("name").textContent = localStorage.getItem('bookingName');
+document.getElementById("phone").textContent = localStorage.getItem('bookingPhone');
+document.getElementById("location").textContent = localStorage.getItem('bookingLocation');
+document.getElementById("date").textContent = localStorage.getItem('bookingDate');
+document.getElementById("time").textContent = localStorage.getItem('bookingTime');
+document.getElementById("total").textContent = total;
+
+const list = document.getElementById("serviceList");
+
+services.forEach(s => {
+  const li = document.createElement('li');
+  li.textContent = `${s.name} - ${s.price} TZS`;
+  list.appendChild(li);
+});
+</script>
+
+</body>
+</html>
